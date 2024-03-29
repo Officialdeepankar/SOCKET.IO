@@ -1,17 +1,26 @@
-const express=require("express");
-const app=express();//express servere
-const {createServer}=require("http");
-const{join, dirname}=require("path")
-const server=createServer(app);// http server mein apna app server de diya ;
+const express = require('express');
+const { createServer } = require('node:http');
+const { join } = require('node:path');
+const { Server } = require('socket.io');
 
-app.get("/",(req,res)=>{
-    res.sendfile(join(__dirname,"./index.html"));
-})
+const app = express();
+const server = createServer(app);
+const io = new Server(server);
 
+app.get('/', (req, res) => {
+  res.sendFile(join(__dirname, 'index.html'));
+});
 
-server.listen(3000,()=>{
-    console.log(`http://localhost:${3000}`);//http server chall jayega 
-})
+io.on('connection', (socket) => {
+    console.log('a user connected');
+    socket.on('disconnect', () => {
+      console.log('user disconnected');
+    });
+  });
+
+server.listen(3000, () => {
+  console.log('server running at http://localhost:3000');
+});
 
 
 
