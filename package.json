@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Officialdeepankar/SocketIO-Coding-Playground/issues"
   },
-  "homepage": "https://github.com/Officialdeepankar/SocketIO-Coding-Playground#readme"
+  "homepage": "https://github.com/Officialdeepankar/SocketIO-Coding-Playground#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
