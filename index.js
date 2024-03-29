@@ -1,11 +1,11 @@
 const express=require("express");
 const app=express();//express servere
 const {createServer}=require("http");
-
+const{join, dirname}=require("path")
 const server=createServer(app);// http server mein apna app server de diya ;
 
 app.get("/",(req,res)=>{
-    res.send("Your are at home page!");
+    res.sendfile(join(__dirname,"./index.html"));
 })
 
 
